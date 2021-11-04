@@ -39,3 +39,31 @@ const members = [
         "role" : "Graphic Designer"
     }
 ]
+
+
+// contenitore dei membri
+const memberCont = document.getElementsByClassName("team-container");
+
+// stampo i membri già presenti dall'array all'html
+// creo il div per gli elementi
+let memberPage = document.createElement("div");
+memberPage.classList.add("team-card");
+memberCont.append(memberPage);
+
+// creo i div per ogni membro
+let memberImg = document.createElement("div");
+memberImg.classList.add("card-image");
+memberPage.append(memberImg);
+let memberText = document.createElement("div");
+memberText.classList.add("card-text");
+memberPage.append(memberText);
+
+// aggiungo i pezzi dell'array nei div giusti
+// memberImg.innerHTML = members.img;
+// memberText.innerHTML = members.name;
+// memberText.innerHTML = members.role;
+// ...
+// memberImg.append(members.img);
+// memberText.append(members.name);
+// memberText.append(members.role);
+
