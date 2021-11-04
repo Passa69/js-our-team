@@ -4,37 +4,37 @@
 
 const members = [
     {
-        "img"  : "<img src=`img/wayne-barnett-founder-ceo.jpg` alt=`Wayne Barnett`/>",
+        "img"  : "img/wayne-barnett-founder-ceo.jpg",
         "name" : "Wayne Barnett",
         "role" : "Founder & CEO"
     },
 
     {
-        "img"  : "<img src=`img/angela-caroll-chief-editor.jpg` alt=`Angel Caroll`/>",
+        "img"  : "img/angela-caroll-chief-editor.jpg",
         "name" : "Angel Caroll",
         "role" : "Chief Editor"
     },
 
     {
-        "img"  : "<img src=`img/walter-gordon-office-manager.jpg` alt=`Walter Gordon`/>",
+        "img"  : "img/walter-gordon-office-manager.jpg",
         "name" : "Walter Gordon",
         "role" : "Office Manager"
     },
 
     {
-        "img"  : "<img src=`img/angela-lopez-social-media-manager.jpg` alt=`Angela Lopez`/>",
+        "img"  : "img/angela-lopez-social-media-manager.jpg",
         "name" : "Angela Lopez",
         "role" : "Social Media Manager"
     },
 
     {
-        "img"  : "<img src=`img/scott-estrada-developer.jpg` alt=`Scott Estrada`/>",
+        "img"  : "img/scott-estrada-developer.jpg",
         "name" : "Scott Estrada",
         "role" : "Developer"
     },
 
     {
-        "img"  : "<img src=`img/barbara-ramos-graphic-designer.jpg` alt=`Barbara Ramos`/>",
+        "img"  : "img/barbara-ramos-graphic-designer.jpg",
         "name" : "Barbara Ramos",
         "role" : "Graphic Designer"
     }
@@ -42,45 +42,39 @@ const members = [
 
 
 // contenitore dei membri
-const memberContainer = document.getElementsByClassName("team-container");
+const memberContainer = document.querySelector(".team-container");
 
 // stampo i membri già presenti dall'array all'html con un ciclo
 
-for (i = 0; i < 6; i++) {
+for (i = 0; i < members.length; i++) {
     // creo il div per gli elementi
     let memberPage = document.createElement("div");
     memberPage.classList.add("team-card");
-    memberPage.append(i);
-    memberContainer.append(memberPage);
 
     // creo i div per ogni membro
     let memberImg = document.createElement("div");
     memberImg.classList.add("card-image");
-    memberPage.append(memberImg);
+    memberImg.innerHTML = `
+    <img
+        src="${members[i].img}"
+        alt="${members[i].name}"
+    />
+    `;
+    memberPage.appendChild(memberImg);
 
     let memberText = document.createElement("div");
     memberText.classList.add("card-text");
-    memberPage.append(memberText);
+    memberText.innerHTML = `
+    <h3>
+        ${members[i].name}
+    </h3>
+    `;
+    memberText.innerHTML += `
+    <p>
+        ${members[i].role}
+    </p>
+    `;
+    memberPage.appendChild(memberText);
     
+    memberContainer.appendChild(memberPage);
 }
-
-// aggiungo i pezzi dell'array nei div giusti
-for (let img in members) {
-    memberImg.append(members[img]);
-}
-
-for (let name in members) {
-    memberText.append(members[name]);
-}
-
-for (let role in members) {
-    memberText.append(members[role]);
-}
-// memberImg.innerHTML = members.img;
-// memberText.innerHTML = members.name;
-// memberText.innerHTML = members.role;
-
-
-
-
-
