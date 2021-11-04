@@ -45,18 +45,20 @@ const members = [
 const memberCont = document.getElementsByClassName("team-container");
 
 // stampo i membri già presenti dall'array all'html
+// creo i div per ogni membro
+let memberImg = document.createElement("div");
+memberImg.classList.add("card-image");
+memberPage.append(memberImg);
+
+let memberText = document.createElement("div");
+memberText.classList.add("card-text");
+memberPage.append(memberText);
+
 // creo il div per gli elementi
 let memberPage = document.createElement("div");
 memberPage.classList.add("team-card");
 memberCont.append(memberPage);
 
-// creo i div per ogni membro
-let memberImg = document.createElement("div");
-memberImg.classList.add("card-image");
-memberPage.append(memberImg);
-let memberText = document.createElement("div");
-memberText.classList.add("card-text");
-memberPage.append(memberText);
 
 // aggiungo i pezzi dell'array nei div giusti
 // memberImg.innerHTML = members.img;
